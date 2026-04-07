@@ -1,12 +1,9 @@
 def solve() -> None:
     n = int(input())
     nums = list(map(int, input().split()))
-
-    sum = 0
-    max_num = max(nums)
-    for i in range(len(nums)):
-        sum = sum + ((nums[i] / max_num) * 100)
-    print(sum / len(nums))
+    m = max(nums)
+    total = sum(x / m * 100 for x in nums)
+    print(total / n)
 
 
 def main() -> None:
