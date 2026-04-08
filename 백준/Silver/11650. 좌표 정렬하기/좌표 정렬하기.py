@@ -1,12 +1,19 @@
-N = int(input())
+def solve() -> None:
+    n = int(input())
+    nums = []
+    for _ in range(n):
+        x, y = map(int, input().split())
+        nums.append((x, y))
 
-graph = []
+    nums.sort(key=lambda x: (x[0], x[1]))
 
-for _ in range(N):
-    x, y = map(int, input().split())
-    graph.append((x, y))
+    for x, y in nums:
+        print(x, y)
 
-sorted_graph = sorted(graph, key=lambda x: (x[0], x[1]))
 
-for data in sorted_graph:
-    print(*data)
+def main() -> None:
+    solve()
+
+
+if __name__ == "__main__":
+    main()
