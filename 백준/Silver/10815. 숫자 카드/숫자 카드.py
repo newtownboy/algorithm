@@ -1,31 +1,20 @@
-def binary_search(arr, target):
-    left = 0
-    right = len(arr) - 1
-    
-    while left <= right:
-        mid = (left + right) // 2
-        if arr[mid] == target:
-            return 1
-        elif arr[mid] < target:
-            left = mid + 1
-        else:
-            right = mid - 1
-    return 0
+import sys
 
-def main():
-    N = int(input())  # 첫 번째 입력: N
-    nArray = list(map(int, input().split()))  # 두 번째 입력: nArray
-    
-    nArray.sort()  # nArray를 오름차순 정렬
-    
-    M = int(input())  # 세 번째 입력: M
-    mArray = list(map(int, input().split()))  # 네 번째 입력: mArray
-    
-    result = []
-    for target in mArray:
-        result.append(binary_search(nArray, target))
-    
-    print(" ".join(map(str, result)))
+
+def solve() -> None:
+    data = sys.stdin.buffer.read().split()
+    n = int(data[0])
+    cards = set(map(int, data[1 : n + 1]))
+    m = int(data[n + 1])
+    targets = list(map(int, data[n + 2 : n + 2 + m]))
+
+    out = ["1" if t in cards else "0" for t in targets]
+    sys.stdout.write(" ".join(out))
+
+
+def main() -> None:
+    solve()
+
 
 if __name__ == "__main__":
     main()
